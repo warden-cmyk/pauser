@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        KILL_BACKGROUND_PROCESSES is a normal permission (granted
+        automatically at install time - no runtime prompt), required to
+        call the documented ActivityManager.killBackgroundProcesses() API
+        used by Session 8's background-process cleanup (Architecture doc
+        Component 8, Phase A only). PACKAGE_USAGE_STATS (a special
+        permission, Usage Access) is still not declared - that belongs to
+        later, not-yet-implemented feature work. There is intentionally no
+        INTERNET permission - this app has no network functionality by
+        design.
+
+        The <queries> element below is the PRD/Architecture-documented,
+        Play-legal alternative to QUERY_ALL_PACKAGES (Android 11+ package
+        visibility): it declares that this app needs to see other apps that
+        expose a standard launcher entry point, and nothing more.
+    -->
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.BatteryManager"
+        android:supportsRtl="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.BatteryManager">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

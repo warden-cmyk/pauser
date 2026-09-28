@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--
+        This is the platform (View-system) theme referenced by the manifest.
+        It exists only as the activity's launch theme; all actual UI theming
+        (colors, typography, dark/light) is done in Compose via
+        ui/theme/Theme.kt using Material 3. Keep this minimal.
+    -->
+    <style name="Theme.BatteryManager" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>
